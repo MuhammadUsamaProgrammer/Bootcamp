@@ -1,5 +1,4 @@
-import 'dart:developer';
-
+import 'package:bootcamp/model/names_model.dart';
 import 'package:bootcamp/view/card.dart';
 import 'package:flutter/material.dart';
 
@@ -15,9 +14,8 @@ class ListOverview extends StatelessWidget {
         child: ListView.builder(
             // physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(30),
-            itemCount: names.length,
+            itemCount: namesModel.length,
             itemBuilder: (context, index) {
-              log(names[index]);
               return Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: Container(
@@ -40,7 +38,7 @@ class ListOverview extends StatelessWidget {
                                 SizedBox(
                                   height: 20,
                                   width: 20,
-                                  child: Image.asset("assets/img1.png"),
+                                  child: Image.asset(namesModel[index].logo),
                                 ),
                                 const Text(
                                   "Testing",
@@ -51,7 +49,7 @@ class ListOverview extends StatelessWidget {
                                       fontWeight: FontWeight.w400),
                                 ),
                                 Text(
-                                  "${names[index]} Bootcamp",
+                                  "${namesModel[index].event} Bootcamp",
                                   style: const TextStyle(
                                       color: Colors.black,
                                       decoration: TextDecoration.none,
@@ -87,9 +85,9 @@ class ListOverview extends StatelessWidget {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
-                                  "Your Name",
-                                  style: TextStyle(
+                                Text(
+                                  namesModel[index].name,
+                                  style: const TextStyle(
                                       color: Colors.black,
                                       decoration: TextDecoration.none,
                                       fontSize: 13,
@@ -104,13 +102,18 @@ class ListOverview extends StatelessWidget {
                                       fontWeight: FontWeight.w500),
                                 ),
                                 const Spacer(),
-                                Info(icon: Icons.phone, txt: "0300-000000"),
-                                Info(icon: Icons.map, txt: "st abc, city xyz"),
+                                Info(
+                                    icon: Icons.phone,
+                                    txt: namesModel[index].ph),
+                                Info(
+                                    icon: Icons.map,
+                                    txt: namesModel[index].address),
                                 Info(
                                     icon: Icons.mail_rounded,
-                                    txt: "hloo.bootcamp@gmail.com"),
+                                    txt: namesModel[index].mail),
                                 Info(
-                                    icon: Icons.link, txt: "www.googledev.com"),
+                                    icon: Icons.link,
+                                    txt: namesModel[index].site),
                               ],
                             )
                           ],
