@@ -13,7 +13,7 @@ class CardPage extends StatelessWidget {
           child: Container(
             height: 170,
             width: 300,
-            color: Colors.cyan,
+            color: const Color.fromRGBO(0, 188, 212, 1),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Container(
