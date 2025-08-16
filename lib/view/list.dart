@@ -13,6 +13,7 @@ class ListOverview extends StatelessWidget {
         height: MediaQuery.sizeOf(context).height,
         width: MediaQuery.sizeOf(context).width,
         child: ListView.builder(
+            // physics: const BouncingScrollPhysics(),
             padding: const EdgeInsets.all(30),
             itemCount: names.length,
             itemBuilder: (context, index) {
