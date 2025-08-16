@@ -132,7 +132,7 @@ class Info extends StatelessWidget {
           width: 5,
         ),
         SizedBox(
-          width: 115,
+          width: 115 - 25,
           child: Text(
             txt,
             style: const TextStyle(

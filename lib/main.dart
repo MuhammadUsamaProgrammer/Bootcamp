@@ -1,4 +1,4 @@
-import 'package:bootcamp/clickable.dart';
+import 'package:bootcamp/view/list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,8 +10,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      home: Clickable(),
+    return const GetMaterialApp(
+      home: ListOverview(),
     );
   }
 }
