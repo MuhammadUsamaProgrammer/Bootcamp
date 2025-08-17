@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:bootcamp/view/list.dart';
 import 'package:bootcamp/viewmodel/clickable_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class Clickable extends StatefulWidget {
 
 class _ClickableState extends State<Clickable> {
   final clickableVM = Get.put(ClickableViewModel());
+  // final clickableVM2 = ClickableViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +27,15 @@ class _ClickableState extends State<Clickable> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Obx(
-              () => Text(
+            Obx(() {
+              return Text(
                 clickableVM.count.toString(),
                 style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w600,
                     color: Colors.white),
-              ),
-            ),
+              );
+            }),
             const SizedBox(
               height: 20,
             ),
@@ -41,7 +43,8 @@ class _ClickableState extends State<Clickable> {
               onTap: () {
                 log("Hit");
                 clickableVM.increment();
-                // setState(() {});
+                // clickableVM2.increment();
+                setState(() {});
               },
               child: Container(
                 height: 50,
@@ -58,7 +61,35 @@ class _ClickableState extends State<Clickable> {
                   ),
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ListOverview(),
+                    ));
+              },
+              child: Container(
+                height: 50,
+                width: 200,
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 212, 0, 0),
+                    borderRadius: BorderRadius.circular(8)),
+                child: const Center(
+                  child: Text(
+                    "Navigate",
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                        color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
